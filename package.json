@@ -1,6 +1,6 @@
 {
   "name": "node-dir-to-obj",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Convert the contents of a directory to an object.",
   "type": "module",
   "exports": "./dist/main.js",

@@ -25,7 +25,7 @@ subDir
 ```ts
 import dirToObj from 'node-dir-to-obj';
 
-const obj = dirToObj('<dir path>');
+const obj = await dirToObj('<dir path>');
 /*
   {
     'a.txt': '<contents of a.txt>',
