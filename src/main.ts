@@ -10,7 +10,11 @@ async function dirToObjInternal(dirPath: string, opt: Options): Promise<Record<s
   }
   const subFileContentList = await Promise.all(
     files.map(async (f) => {
-      const bytes = await mfs.readFileAsync(nodepath.join(dirPath, f));
+      const filePath = nodepath.join(dirPath, f);
+      if (opt.textMode) {
+        return mfs.readTextFileAsync(filePath);
+      }
+      const bytes = await mfs.readFileAsync(filePath);
       return bytes.toString('hex');
     }),
   );
@@ -33,6 +37,7 @@ async function dirToObjInternal(dirPath: string, opt: Options): Promise<Record<s
 
 export interface Options {
   ignoreMap?: Set<string>;
+  textMode?: boolean;
 }
 
 export default async function dirToObj(

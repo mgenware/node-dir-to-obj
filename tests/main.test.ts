@@ -13,6 +13,16 @@ it('Default', async () => {
   });
 });
 
+it('textMode', async () => {
+  assert.deepStrictEqual(await dirToObj(defaultDataDir, { textMode: true }), {
+    'a.txt': 'A\n',
+    sub: {
+      'sub-a.txt': 'SUB_A\n',
+      'sub-b.txt': 'SUB_B\n',
+    },
+  });
+});
+
 it('ignoreMap (files)', async () => {
   assert.deepStrictEqual(
     await dirToObj(defaultDataDir, { ignoreMap: new Set<string>(['sub-a.txt']) }),

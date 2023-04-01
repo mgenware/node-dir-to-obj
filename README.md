@@ -39,3 +39,4 @@ const obj = await dirToObj('<dir path>');
 ### Options
 
 - `ignoreMap` a set of names that should be ignored.
+- `textMode` dumps file contents as text instead of hex.
